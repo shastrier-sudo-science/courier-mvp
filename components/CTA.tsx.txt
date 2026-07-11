@@ -1,0 +1,28 @@
+"use client";
+
+interface CTAProps {
+  onAuthClick: (type: "signup" | "login") => void;
+}
+
+export default function CTA({ onAuthClick }: CTAProps) {
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <section className="py-20 bg-orange-500">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Ready to ship smarter?</h2>
+        <p className="text-orange-100 text-lg mb-8 max-w-2xl mx-auto">Join thousands of satisfied customers across Trinidad & Tobago. Sign up free today and get your first delivery handled by professionals.</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <button onClick={() => onAuthClick("signup")} className="bg-white text-orange-600 font-bold px-8 py-4 rounded-xl hover:bg-orange-50 transition shadow-lg">
+            Create Free Account
+          </button>
+          <button onClick={() => scrollToSection("contact")} className="bg-orange-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-orange-700 transition border border-orange-400">
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
